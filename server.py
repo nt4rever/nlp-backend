@@ -2,6 +2,7 @@ import traceback
 from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from main import search as search_similar_question
+from main import calc as calc_similar
 from pydantic import BaseModel
 from typing import List
 from model import Model, get_model
@@ -26,15 +27,25 @@ class KmeansResponse(BaseModel):
     plot_json: dict
 
 
+class CalcRequest(BaseModel):
+    ques_1: str
+    ques_2: str
+
+
 @app.get("/search")
 async def search(question: str, num: int):
     res = search_similar_question(question, num)
     return res
 
 
+@app.post("/calc")
+async def calc(ques: CalcRequest):
+    res = calc_similar(ques.ques_1, ques.ques_2)
+    return {"score": float(res)}
+
+
 @app.post("/cluster")
 async def cluster(request: KmeansRequest, model: Model = Depends(get_model)):
-    print(request.n_clusters, len(request.corpus))
     if (request.n_clusters < 1):
         raise HTTPException(status_code=400,
                             detail="Number of clusters must be greater than 0.")

@@ -19,4 +19,14 @@ def search(question, num=5):
     res = df[['ID', 'QUESTION', 'ANSWER']].copy()
     res['SCORE'] = score[0]
     res.sort_values(by='SCORE', inplace=True, ascending=False)
-    return res.head(num).to_json(orient='records', date_format='iso') 
+    return res.head(num).to_json(orient='records', date_format='iso')
+
+
+def calc(ques_1, ques_2):
+    question_1_embedding = model.encode(ques_1)
+    question_2_embedding = model.encode(ques_2)
+    score = cosine_similarity(
+        [question_1_embedding],
+        [question_2_embedding]
+    )
+    return score[0][0]

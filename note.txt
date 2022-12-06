@@ -1,4 +1,6 @@
 uvicorn server:app --host 0.0.0.0 --port 8000 --reload
+
+
 What is a singleton class
 What is the difference between an Inner Class and a Sub-Class
 While loop is used when certain statements need to be executed repeatedly until a condition is 
