@@ -1,8 +1,12 @@
 uvicorn server:app --host 0.0.0.0 --port 8000 --reload
 
 
-What is a singleton class
-What is the difference between an Inner Class and a Sub-Class
-While loop is used when certain statements need to be executed repeatedly until a condition is 
-What is an infinite Loop
-Do While Loop is same as While loop with only difference
+What should I do to improve my English ?
+What should I do to improve my spoken English?
+Can I improve my English?
+How can I earn money online?
+How do I earn money online?
+Can I earn money online?
+What are some mind-blowing Mobile gadgets that exist that most people don't know about?
+What are some mind-blowing gadgets and technologies that exist that most people don't know about?
+What are some mind-blowing mobile technology tools that exist that most people don't know about?
